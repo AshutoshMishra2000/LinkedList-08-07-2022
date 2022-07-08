@@ -1,0 +1,38 @@
+class gfg
+{
+      
+        Node midNode(Node head){
+              // Your code here.
+         Node hare=head;
+         Node turtle=head;
+         //important nad tricky to understand.....
+         while(hare.next!=head && hare.next.next!=head){
+             hare=hare.next.next;
+             turtle=turtle.next;
+         }
+         return turtle;
+        }
+        Node tailNode(Node head){
+            Node temp=head;
+            while(temp.next!=head){
+                temp=temp.next;
+            }
+            return temp;
+        }
+        
+	    void splitList(circular_LinkedList list)
+        {
+            //circular_LinkedList obj=new circular_LinkedList();
+            
+            Node head=list.head;
+            
+            Node mid=midNode(head);
+            Node tail=tailNode(head);
+            Node secStart=mid.next;
+            
+            tail.next=secStart;
+            mid.next=head;
+            list.head1=mid.next;
+            list.head2=tail.next;
+	 }
+}

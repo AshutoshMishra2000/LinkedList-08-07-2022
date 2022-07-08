@@ -1,0 +1,39 @@
+class Solution {
+    public void alternatingSplitList(Node head){
+       //Your code here
+       if(head.next==null){
+           GFG.a=head;
+           GFG.b=head;
+       }
+       Node head1=new Node(-1);
+       Node tempOne=head1;
+       Node head2=new Node(-1);
+        Node tempTwo=head2;
+       Node temp1=head;
+     //  Node temp2=head;
+       while(temp1!=null){
+             if(temp1.next!=null){
+        tempOne.next=new Node(temp1.data);
+         tempOne=tempOne.next;  
+      
+         tempTwo.next=new Node(temp1.next.data);
+       tempTwo=tempTwo.next;
+        }
+        else{
+           tempOne.next=new Node(temp1.data);
+         tempOne=tempOne.next;  
+        }
+        if(temp1.next!=null){
+         temp1=temp1.next.next;
+        }
+        else{
+            temp1=temp1.next;
+        }
+      
+    
+       }
+       GFG.a=head1.next;
+       GFG.b=head2.next;
+    }
+    
+}

@@ -1,0 +1,41 @@
+class Solution{
+     int length(Node head){
+        Node temp=head;
+    int c=0;
+        while(temp!=null){
+            c++;
+            temp=temp.next;
+        }
+        return c;
+    }
+    //Function to rotate a linked list.
+    public Node rotate(Node head, int k) {
+        // add code here
+    if(head.next==null){
+        return head;
+    }
+    int len=length(head);
+    if(k>=len){
+        k=k%len;
+    }
+    if(k==0){
+        return head;
+    }
+int i=1;
+//for anticlockwise rotation
+Node temp=head;
+while(i<k){
+    temp=temp.next;
+    i++;
+}
+Node temp2=temp.next;
+temp.next=null;
+Node temp3=head;
+head=temp2;
+while(temp2.next!=null){
+    temp2=temp2.next;
+}
+temp2.next=temp3;
+return head;
+    }
+}
